@@ -8,14 +8,15 @@ This is day #1 of my journey through [100 Days Of Gatsby](https://www.gatsbyjs.o
 
 ### Why
 
-Before I get into the code challenge part, a little bit about why I'm doing this. I have been working as a developer for a long time, but largely without a personal web site. Because I have been drawn to Gatsby recently as a tool for building sites, I figured this would be a good opportunity to finally make progress on a site while I learn more about Gatsby and its ecosystem. I am also looking forward to the challenge of writing these posts while learning, since teaching others (you the reader) helps an individual (me) to retain the learned information. And hopefully my writing will improve as I do this. It has been a while.
+Before I get into the coding challenge part, a little bit about why I'm doing this. I have been working as a developer for a long time, but largely without a personal web site. Because I have been drawn to Gatsby recently as a tool for building sites, I figured this would be a good opportunity to finally make progress on a site while I learn more about Gatsby and its ecosystem. I am also looking forward to the challenge of writing these posts while learning, since teaching others (you the reader) helps an individual (me) to retain the learned information. And hopefully my writing will improve as I do this. It has been a while.
 
-I should also note that this is not meant to be a tutrial! There are excellent [tutorials on the Gatsby site](https://www.gatsbyjs.org/tutorial/). My intention here is to document my process and to explain what's going on in each challenge.
+I should also note that this is not meant to be a tutorial! There are excellent [tutorials on the Gatsby site](https://www.gatsbyjs.org/tutorial/). My intention here is to document my process and to explain what's going on in each challenge.
 
 ### Getting Started
-I started out by generating a site from the default gatsby starter. Maybe this is cheating a little, but it seems like there's a bit of boilerplate to get started. Since the first challenge is to create a blog, I figured I could start with the default starter and build a blog from there. If we run `gatsby new` without the second argument we will get the default starter, so let's do that: `gatsby new webbywebsite`.
 
-Now I have a working gatsby site. Good! But I want a blog on the site. I'm not really sure what this site is going to turn into, but keeping in the spirit of a [minimum viable product](https://en.wikipedia.org/wiki/Minimum_viable_product), I will just list out my blog posts right on the index page. This seems good enough. But in order to display these posts I will of course need a post.
+I started out by generating a site from the default Gatsby starter. Maybe this is cheating a little, but it seems like there's a bit of boilerplate to get started. Since the first challenge is to create a blog, I figured I could start with the default starter and build a blog from there. If we run `gatsby new` without the second argument we will get the default starter, so let's do that: `gatsby new webbywebsite`.
+
+Now I have a working Gatsby site. Good! But I want a blog on the site. I'm not really sure what this site is going to turn into, but keeping in the spirit of a [minimum viable product](https://en.wikipedia.org/wiki/Minimum_viable_product), I will just list out my blog posts right on the index page. This seems good enough. But in order to display these posts I will of course need some content.
 
 ### Creating Content
 
@@ -38,7 +39,7 @@ This tells Gatsby to read files from `/content/blog`, which is where we store ou
 
 ### Transforming Content
 
-Just as Gatsby sources data with various source plugins, it parses that data with various transformer plugins. To illustrate, let's assume I am sourcing entirely from my file system. I will then use gatsby-source-filesystem to get that data. But those files might be json, xml, csv, etc. Each kind of file needs a different transformer to prepare that data for Gatsby's data layer. In our case, we are only using markdown files, so we will use the [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/) plugin. Again, we add it as a dev dependency, and then add it to `gatsby-config.js`. Now, when Gatsby builds, it turns each markdown file into a graphql node, with properties like `html` and `frontmatter` that we can access in our queries.  
+Just as Gatsby sources data with various __source plugins__, it parses that data with various transformer plugins. To illustrate, let's assume I am sourcing entirely from my file system. I will then use gatsby-source-filesystem to get that data. But those files might be json, xml, csv, etc. Each kind of file needs a different transformer to prepare that data for Gatsby's data layer. In our case, we are only using markdown files, so we will use the [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/) plugin. Again, we add it as a dev dependency, and then add it to `gatsby-config.js`. Now, when Gatsby builds, it turns each markdown file into a graphql node, with properties like `html` and `frontmatter` that we can access in our queries.  
 
 We can inspect and explore this data by using GraphiQL, which is a GraphQL ui that we can access in a browser after running `gatsby develop` and browsing http://localhost:8000/___graphql. If we look at the Explorer in GraphiQL, we see a few queries that gatsby-transformer-remark has added, such as `allMarkdownRemark`. Running this   query will show the html of our first post:
 
