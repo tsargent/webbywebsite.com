@@ -1,6 +1,6 @@
 ---
 title: Hello World!
-date: "2020-01-26"
+date: "2020-01-29"
 description: "Day #1 of 100 Days of Gatsby"
 ---
 
