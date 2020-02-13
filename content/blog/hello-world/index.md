@@ -2,6 +2,7 @@
 title: Hello World!
 date: "2020-01-29"
 description: "Day #1 of 100 Days of Gatsby"
+image: hello.jpg
 ---
 
 This is day #1 of my journey through [100 Days Of Gatsby](https://www.gatsbyjs.org/blog/100days/). The challenge of the first day was to [build a blog](https://www.gatsbyjs.org/blog/100days/start-blog/), and this post is the first post of that blog. 

@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const { image } = post.frontmatter
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
@@ -24,6 +25,9 @@ class BlogPostTemplate extends React.Component {
             <p>
               {post.frontmatter.date}
             </p>
+            {image && (
+              <img alt={image.name} src={image.publicURL} />
+            )}
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr />
@@ -68,6 +72,10 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          publicURL
+          name
+        }
       }
     }
   }
