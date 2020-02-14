@@ -2,6 +2,7 @@
 title: Build and Deploy
 date: "2020-02-02"
 description: "Day #2 of 100 Days of Gatsby"
+image: builders.jpg
 ---
 This post covers my solution to the second challenge of [100 Days of Gatsby](https://www.gatsbyjs.org/blog/100days/). The goal was to get the site to a host, while using free tools. More details on this challenge [here](https://www.gatsbyjs.org/blog/100days/free-hosting/).
 
