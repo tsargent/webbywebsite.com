@@ -24,6 +24,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const {data, errors} = await graphql(`
       query {
         blog: allMarkdownRemark(
+            filter: {
+              fileAbsolutePath: {regex: "//content/blog//"}
+            }
             sort: { fields: [frontmatter___date], order: DESC }
             limit: 1000
           ) {
